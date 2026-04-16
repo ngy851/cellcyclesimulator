@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================= BASE THEME ================= */
+@layer base {
+  :root {
+    /* Core colors */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    /* Surfaces */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand (clean cyan-blue tech vibe) */
+    --primary: 195 100% 60%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 200 100% 60%;
+    --accent-foreground: 222 47% 7%;
+
+    /* Status */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI */
+    --border: 217 33% 22%;
+    --input: 217 33% 18%;
+    --ring: 195 100% 60%;
+
+    --radius: 0.8rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* ================= UTILITIES ================= */
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(222, 47%, 10%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(217, 33%, 25%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(195, 100%, 50%);
+}
+
+/* ================= BACKGROUND GRID ================= */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ================= GLOW EFFECTS ================= */
+.glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.glow-strong {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25),
+              0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.glow-text {
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+/* ================= INPUT ================= */
+.input-glow:focus {
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.6),
+              0 0 20px rgba(0, 212, 255, 0.15);
+  outline: none;
+}
+
+/* ================= BUTTON EFFECT ================= */
+.btn-glow {
+  transition: all 0.2s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+}
+
+/* ================= CHART COLORS ================= */
+.run-line-0 { stroke: #00d4ff; }
+.run-line-1 { stroke: #ff6b6b; }
+.run-line-2 { stroke: #51cf66; }
+.run-line-3 { stroke: #ffd43b; }
+.run-line-4 { stroke: #cc5de8; }
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.pulse-soft {
+  animation: pulseSoft 1.5s infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animated-border {
+  animation: borderGlow 2.5s infinite ease-in-out;
+}
